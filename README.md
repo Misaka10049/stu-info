@@ -1,4 +1,6 @@
 # stu-info
-help you to steal students personal information from a school website
+你知道怎么从学校网页中盗取学生个人信息吗？
 
-Well, it's so crazy and cool!
+steal.py 会告诉你答案！
+
+多线程，高效率，网页访问无上限，平均1分钟每人！
