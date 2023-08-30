@@ -34,8 +34,15 @@ def func():
 			exit()
 		elif res.json()["d"]["type"]!=None:
 			found=True
-			print("查询完成！用时："+str(time.time()-start)+"s")
+			print("\n查询完成！用时："+str(time.time()-start)+"s")
+			print("\n个人信息如下：")
 			print(res.json())
+			print("\n分班情况如下：")
+			sid=res.json()["d"]["id"]
+			api="https://oa.cqyz.cn/Web%20Services/student.asmx/NS_DC_Get"
+			req={"sid":sid}
+			data=requests.post(api,headers=head,data=str(req).encode("utf-8"))
+			print(data.json())
 			exit()
 		# time.sleep(1/20)
 
