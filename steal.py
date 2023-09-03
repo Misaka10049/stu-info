@@ -18,7 +18,7 @@ headers = {
     'Sec-Fetch-Site': 'same-origin',
     'TE': 'trailers',
 }
-n = 3
+n = 2
 name = ""
 task_list = []
 url = "https://oa.cqyz.cn/Web%20Services/student.asmx/NewStudents_Get2"
@@ -33,10 +33,12 @@ async def find_id(name, start_num, end_num):
         response = requests.post(url=url, headers=headers, data=post_json)
         content = response.text
         if "Error" not in content:
-            print(content)
             if "safedog" not in content:
                 finded_id = id
                 raise ValueError(id)
+            elif "JumpSelf" in content:
+                finded_id = "blocked"
+                raise ValueError("blocked")
             else:
                 finded_id = "blocked"
                 raise ValueError("blocked")
